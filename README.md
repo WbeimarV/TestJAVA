@@ -1,6 +1,6 @@
 # HappyFeet Veterinaria
 ## Solucion del test
-La solución del test se encuentra en el archivo llamado **MenuFacturacionCliente.java**
+La solución del test se encuentra en el archivo llamado **MenuFacturacionCliente.java**  dentro del módulo menu
 
 Al correr el programa, utilice la opción del menú 6, para ver las facturas de cliente indicando su ID.
 

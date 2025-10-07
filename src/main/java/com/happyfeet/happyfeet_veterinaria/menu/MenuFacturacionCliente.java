@@ -53,7 +53,8 @@ public class MenuFacturacionCliente {
             if (idStr == null || idStr.isBlank()) {
                 return;
             }
-
+            
+            double total = 0;
             int clienteId = Integer.parseInt(idStr);
 
             Dueno dueno = duenoDAO.buscarPorId(clienteId);
@@ -71,6 +72,8 @@ public class MenuFacturacionCliente {
                             .append(" | Cliente: ").append(d != null ? d.getNombreCompleto() : "Desconocido")
                             .append(" | Fecha: ").append(f.getFechaEmision())
                             .append(" | Total: ").append(f.getTotal()).append("\n");
+                    
+                    total += f.getTotal();
 
                     for (ItemFactura item : itemFacturaDAO.listarPorFactura(f.getId())) {
                         Inventario prod = inventarioDAO.buscarPorId(item.getId());
@@ -80,6 +83,7 @@ public class MenuFacturacionCliente {
                                 .append("\n");
                     }
                     sb.append("\n");
+                    sb.append("Total consumido por el cliente: ").append(total);
                 }
             }
             JOptionPane.showMessageDialog(null, sb.toString());
